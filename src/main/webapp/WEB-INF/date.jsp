@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>Hello <c:out value="${name}" />!</h2>
+	<h2><c:out value="${date}" /></h2>
 	<p> Welcome to SpringBoot!
 </body>
 </html>
