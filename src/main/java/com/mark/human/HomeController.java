@@ -8,12 +8,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.Date;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
 
 	@RequestMapping("/")
-	public String index() {
+	public String index(HttpSession session) {
+		if(session.getAttribute("count")!= null) {
+			Integer count = (Integer) session.getAttribute("count");
+			session.setAttribute("count", count+1);
+		}
+		else if(session.getAttribute("count")== null) {
+			session.setAttribute("count", 0);
+		}
 		return "home.jsp";
 	}
 	
